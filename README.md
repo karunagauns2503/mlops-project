@@ -1,5 +1,5 @@
-# mlops-project
-# Crop Yield Prediction using Machine Learning
+
+# Machine Learning Based Crop Yield Predictions for Sustainable Agriculture
 
 ## About the Project
 
