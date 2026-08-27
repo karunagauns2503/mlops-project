@@ -17,6 +17,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 DATA_PATH = "data/crop_yield_dataset.csv"
 MODEL_DIR = "models"
 MODEL_PATH = os.path.join(MODEL_DIR, "crop_yield_model.pkl")
+EVALUATION_PATH = os.path.join(MODEL_DIR, "model_evaluation.csv")
 
 
 df = pd.read_csv(DATA_PATH)
@@ -159,6 +160,9 @@ print(results_df.to_string(index=False))
 
 os.makedirs(MODEL_DIR, exist_ok=True)
 
+# Save model evaluation results as an MLOps artifact
+results_df.to_csv(EVALUATION_PATH, index=False)
+
 joblib.dump(best_pipeline, MODEL_PATH)
 
 print("\n")
@@ -169,3 +173,4 @@ print("=" * 70)
 print(f"Selected Model : {best_model_name}")
 print(f"Best R²        : {best_r2:.4f}")
 print(f"Model saved to : {MODEL_PATH}")
+print(f"Evaluation report saved to : {EVALUATION_PATH}")
